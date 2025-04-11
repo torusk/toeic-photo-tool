@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学習リソース | TOEIC攻略ガイド</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .page-title {
+            background-color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .page-title h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .intro-section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro-container p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .resources-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .resources-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .resources-section p.section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .resource-card-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .resource-card-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+        
+        .download-section {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .download-container h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .download-item {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .download-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .download-item h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+        
+        .download-item p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .cta-section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-container h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .cta-container p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-accent {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TOEIC攻略ガイド</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="blog.html">TOEIC攻略道場</a></li>
+                        <li><a href="https://id-photo-app.vercel.app/" target="_blank">証明写真作成</a></li>
+                        <li><a href="resources.html">学習リソース</a></li>
+                        <li><a href="about.html">サイトについて</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>TOEIC学習リソース</h1>
+            <p>効率的な学習をサポートする厳選ツールとリソース</p>
+        </div>
+    </section>
+    
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-container">
+                <p>TOEIC学習をより効果的に進めるためには、質の高い教材や学習ツールの活用が不可欠です。このページでは、実際にハイスコアを達成した経験から、本当に役立つリソースを厳選して紹介します。</p>
+                <p>オンライン学習サイト、おすすめ参考書、アプリ、無料ダウンロード教材など、様々な角度からTOEIC学習をサポートするリソースを集めました。ぜひあなたの学習にお役立てください。</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="resources-section">
+        <div class="container">
+            <h2>オンライン学習サイト</h2>
+            <p class="section-intro">インターネットを活用したTOEIC対策サイトは、いつでもどこでも学習できる便利なツールです。特に以下のサイトは質の高いコンテンツを提供しています。</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-header">公式サイト</div>
+                    <div class="resource-card-content">
+                        <h3>TOEIC Program 公式サイト</h3>
+                        <p>TOEICテストを主催するETS（Educational Testing Service）の公式サイトです。テスト情報、申し込み方法、サンプル問題などが掲載されています。</p>
+                        <p>特に無料で公開されているサンプル問題は、本番と同じ形式で出題されるため、試験の雰囲気を掴むのに最適です。</p>
+                        <a href="https://www.iibc-global.org/toeic.html" class="resource-link" target="_blank">公式サイトを見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">オンライン学習</div>
+                    <div class="resource-card-content">
+                        <h3>スタディサプリENGLISH</h3>
+                        <p>リクルートが提供するオンライン英語学習サービスです。TOEIC対策コースが充実しており、各パートごとの対策から模擬試験まで幅広くカバーしています。</p>
+                        <p>特に初級者から中級者にかけて効果的で、動画講義と練習問題の組み合わせが分かりやすいと評判です。</p>
+                        <a href="https://eigosapuri.jp/" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">単語学習</div>
+                    <div class="resource-card-content">
+                        <h3>Quizlet</h3>
+                        <p>フラッシュカードを使った単語学習サイトです。TOEIC頻出単語のセットが多数公開されており、スマホアプリでいつでも学習できます。</p>
+                        <p>単語の覚え方が複数用意されており、自分に合った学習方法を選べるのが特徴です。無料プランでもかなり活用できます。</p>
+                        <a href="https://quizlet.com/" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">リスニング強化</div>
+                    <div class="resource-card-content">
+                        <h3>TED Talks</h3>
+                        <p>様々な分野の専門家によるプレゼンテーションを視聴できるサイトです。字幕付きで視聴でき、ビジネス英語の例文も多いため、TOEIC対策としても効果的です。</p>
+                        <p>実際のビジネスシーンで使われる表現や語彙を学べるのが魅力です。</p>
+                        <a href="https://www.ted.com/" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>おすすめアプリ</h2>
+            <p class="section-intro">スマートフォンで手軽に学習できるアプリは、隙間時間を活用するのに最適です。効率的にTOEIC対策ができるアプリを厳選しました。</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-header">総合学習</div>
+                    <div class="resource-card-content">
+                        <h3>abceed</h3>
+                        <p>TOEIC対策教材のデジタル版を提供するアプリです。人気の参考書や問題集を電子書籍として購入でき、スマホで学習できます。</p>
+                        <p>音声再生機能や単語帳機能など、デジタルならではの便利な機能も充実しています。</p>
+                        <a href="https://abceed.com/" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">単語学習</div>
+                    <div class="resource-card-content">
+                        <h3>Anki</h3>
+                        <p>間隔反復システムを用いた効率的な単語学習アプリです。覚えにくい単語ほど頻繁に表示されるため、効率よく記憶に定着させることができます。</p>
+                        <p>TOEIC用の単語デッキを自作するか、共有されているデッキを利用できます。</p>
+                        <a href="https://apps.ankiweb.net/" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">リスニング</div>
+                    <div class="resource-card-content">
+                        <h3>BBC Learning English</h3>
+                        <p>イギリスの公共放送BBCが提供する英語学習アプリです。ニュース、ビジネス英語、文法解説など、多彩なコンテンツを無料で利用できます。</p>
+                        <p>英語のリスニング力を鍛えるのに最適で、TOEIC Part 3, 4対策として活用できます。</p>
+                        <a href="https://www.bbc.co.uk/learningenglish" class="resource-link" target="_blank">詳細を見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">文法対策</div>
+                    <div class="resource-card-content">
+                        <h3>英文法アプリ</h3>
+                        <p>TOEIC Part 5, 6で頻出の文法問題を効率的に学習できるアプリです。レベル別に問題が用意されており、弱点を集中的に強化できます。</p>
+                        <p>解説が分かりやすく、視覚的に文法ルールを理解できるのが特徴です。</p>
+                        <a href="#" class="resource-link">詳細を見る →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>おすすめ参考書</h2>
+            <p class="section-intro">数多くの市販教材の中から、特に効果的なTOEIC対策本を厳選しました。目標スコア別におすすめの教材をご紹介します。</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-header">入門者向け（400-600点）</div>
+                    <div class="resource-card-content">
+                        <h3>TOEIC L&amp;R テスト 出る単特急</h3>
+                        <p>TOEIC頻出単語を効率的に覚えられる単語帳です。重要度に応じて単語が分類されており、例文も豊富で文脈の中で単語を覚えられます。</p>
+                        <p>音声付きで、リスニング対策としても活用できます。入門者の最初の一冊として最適です。</p>
+                        <a href="#" class="resource-link">Amazon で見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">中級者向け（600-800点）</div>
+                    <div class="resource-card-content">
+                        <h3>公式TOEIC Listening &amp; Reading 問題集</h3>
+                        <p>ETS公式の問題集です。実際の試験と同形式、同レベルの問題が収録されており、本番の雰囲気を掴むのに最適です。</p>
+                        <p>公式音声と詳細な解説付きで、自分の弱点を把握し、対策を立てるのに役立ちます。</p>
+                        <a href="#" class="resource-link">Amazon で見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">上級者向け（800点以上）</div>
+                    <div class="resource-card-content">
+                        <h3>TOEIC L&amp;R テスト 究極の模試600問+</h3>
+                        <p>本番と同等以上の難易度の問題を多数収録した問題集です。ハイスコアを目指す上級者の実力チェックと弱点補強に最適です。</p>
+                        <p>特にPart 7の長文読解問題が充実しており、時間配分の練習にもなります。</p>
+                        <a href="#" class="resource-link">Amazon で見る →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-card-header">文法・語彙強化</div>
+                    <div class="resource-card-content">
+                        <h3>TOEIC L&amp;R テスト 文法問題 でる1000問</h3>
+                        <p>Part 5, 6対策に特化した問題集です。TOEIC頻出の文法項目をカバーしており、解説も詳しいため弱点を効率的に克服できます。</p>
+                        <p>問題数が多いため、繰り返し練習することで文法力を確実に向上させられます。</p>
+                        <a href="#" class="resource-link">Amazon で見る →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="download-section">
+        <div class="container">
+            <div class="download-container">
+                <h2>無料ダウンロード教材</h2>
+                <p>効率的なTOEIC学習をサポートするために、当サイトオリジナルの学習教材を無料で提供しています。こちらの教材はどなたでも自由にダウンロードしてご活用いただけます。</p>
+                
+                <div class="download-grid">
+                    <div class="download-item">
+                        <div class="download-icon">📝</div>
+                        <h3>TOEIC頻出単語リスト</h3>
+                        <p>スコア800点達成に必要な重要単語1000語をまとめたPDFです。例文付きで効率的に単語を覚えられます。</p>
+                        <a href="#" class="btn">ダウンロード</a>
+                    </div>
+                    
+                    <div class="download-item">
+                        <div class="download-icon">📊</div>
+                        <h3>学習計画テンプレート</h3>
+                        <p>3ヶ月でスコアアップを実現するための学習計画表です。目標スコア別に学習内容を最適化できます。</p>
+                        <a href="#" class="btn">ダウンロード</a>
+                    </div>
+                    
+                    <div class="download-item">
+                        <div class="download-icon">🎧</div>
+                        <h3>リスニング練習音声</h3>
+                        <p>Part 3, 4形式のオリジナルリスニング問題です。スクリプト付きで効果的にリスニング力を強化できます。</p>
+                        <a href="#" class="btn">ダウンロード</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>TOEIC対策を始めませんか？</h2>
+                <p>当サイトでは、TOEIC学習に役立つ記事やツールを多数提供しています。証明写真作成ツールも無料でご利用いただけます。</p>
+                <a href="https://id-photo-app.vercel.app/" class="btn-accent" target="_blank">証明写真ツールを利用する</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 TOEIC攻略ガイド All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>

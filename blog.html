@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC攻略道場 | TOEIC攻略ガイド</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .page-title {
+            background-color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .page-title h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .intro-section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro-container p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .articles-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.3;
+        }
+        
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-container h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .cta-container p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TOEIC攻略ガイド</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="blog.html">TOEIC攻略道場</a></li>
+                        <li><a href="https://id-photo-app.vercel.app/" target="_blank">証明写真作成</a></li>
+                        <li><a href="resources.html">学習リソース</a></li>
+                        <li><a href="about.html">サイトについて</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>最強のTOEIC攻略道場</h1>
+            <p>厳選された本格的な攻略記事で、あなたのTOEICスコアを確実に向上させます</p>
+        </div>
+    </section>
+    
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-container">
+                <p>TOEIC攻略道場では、実際にハイスコアを達成した筆者が「本当に効果のある学習法」を徹底的に解説します。一時的なテクニックではなく、確実にスコアを伸ばすための体系的な学習アプローチを提供します。</p>
+                <p>当サイトの記事は一般的なTIPS集とは異なり、すべて筆者自身の実体験と研究に基づいています。それぞれの記事は完結型の長文コンテンツとなっており、その分野を徹底的に掘り下げています。</p>
+                <p>初級者から上級者まで、どのレベルの方も次のステップに進むための具体的な道筋を見つけることができるでしょう。</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="articles-section">
+        <div class="container">
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>リスニングで確実に９割を突破する方法</h3>
+                        <p>TOEICリスニングセクションで高得点を取るための実践的なテクニックと学習法を詳しく解説。音声教材の選び方から本番での時間配分まで徹底網羅。</p>
+                        <p>この記事では、特にPart 3とPart 4でのスコアアップに焦点を当て、会話の流れを予測する力や要点を素早く把握するスキルを磨くための具体的なトレーニング方法を紹介しています。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>リーディングを得点源にできる学習法</h3>
+                        <p>多くの受験者が苦手とするリーディングセクションを攻略する秘訣。文法の効率的な学習法から長文読解のスピードアップ方法まで、実例を交えて詳しく紹介。</p>
+                        <p>時間配分の最適化、文法問題の効率的な解き方、そして長文を素早く正確に理解するためのスキャニング技術など、スコアアップに直結する実践的なテクニックを学べます。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>スコア９００点を超えるまでの道のり</h3>
+                        <p>500点台から900点台まで上げた筆者の体験談と戦略。学習計画の立て方、使用教材、つまずきポイントの克服法など、成功への具体的なステップを公開。</p>
+                        <p>各スコア帯で直面する壁と突破法、効果的な学習時間の使い方、そして長期間のモチベーション維持のコツなど、実際の体験に基づいた貴重なアドバイスが満載です。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>超絶おすすめ参考書まとめ</h3>
+                        <p>目標スコア別におすすめの参考書と問題集を厳選紹介。各教材の特徴と効果的な使い方を解説し、自分に最適な教材選びをサポートします。</p>
+                        <p>市販されている数多くの教材の中から本当に効果的なものだけを厳選し、それぞれの教材の強みと弱み、どのような学習者に向いているかを詳しく分析しています。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>試験は前日から始まっている。本番までの必須アイテムまとめ</h3>
+                        <p>試験当日と前日の過ごし方、持ち物チェックリスト、会場での注意点など。万全の準備で本番に臨むための完全ガイド。</p>
+                        <p>心理的な準備から物理的な準備まで、本番でのパフォーマンスを最大化するためのあらゆる側面をカバー。初めての受験者でも安心して試験に臨めるようサポートします。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="article-content">
+                        <h3>継続は力なり、学習を続けるモチベーションアップ方法</h3>
+                        <p>長期間のTOEIC学習を挫折せずに続けるためのモチベーション管理術。効果的な目標設定、進捗管理、スランプ脱出法までを徹底解説。</p>
+                        <p>忙しい社会人でも継続できる学習習慣の作り方、モチベーションが下がったときの対処法、そして効果的な復習サイクルの作り方など、学習の質を高めるための実践的なアドバイスを提供します。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>あなたもTOEICスコアアップを実現しませんか？</h2>
+                <p>当サイトの攻略法を実践することで、多くの学習者が目標スコアを達成しています。体系的な学習アプローチと実践的なテクニックで、あなたのTOEIC学習をサポートします。</p>
+                <a href="https://id-photo-app.vercel.app/" class="btn" target="_blank">証明写真ツールを利用する</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 TOEIC攻略ガイド All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>
