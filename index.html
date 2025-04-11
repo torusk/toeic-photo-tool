@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC攻略ガイド | 証明写真作成ツール付き</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x800');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .features {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-card h3 {
+            margin: 1rem 0;
+            color: var(--primary-color);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .blog-section {
+            padding: 4rem 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.3;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .photo-tool-promo {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .photo-tool-promo h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .photo-tool-promo p {
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TOEIC攻略ガイド</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="blog.html">TOEIC攻略道場</a></li>
+                        <li><a href="https://id-photo-app.vercel.app/" target="_blank">証明写真作成</a></li>
+                        <li><a href="resources.html">学習リソース</a></li>
+                        <li><a href="about.html">サイトについて</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>TOEIC攻略をトータルサポート</h1>
+            <p>学習方法から証明写真作成まで、TOEIC受験に必要な情報とツールを提供します</p>
+            <div>
+                <a href="blog.html" class="btn">攻略道場を見る</a>
+                <a href="https://id-photo-app.vercel.app/" class="btn btn-secondary" target="_blank">証明写真を作成</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">当サイトの特徴</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>実践的な学習法</h3>
+                    <p>実際にスコアアップを達成した学習方法や効率的な勉強法を紹介しています。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>証明写真作成ツール</h3>
+                    <p>自宅で簡単にTOEIC受験用の証明写真を作成できる便利なツールを無料で提供。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>目標スコア別対策</h3>
+                    <p>600点、800点など目標スコア別に最適な学習プランや教材を紹介しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">最強のTOEIC攻略道場</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">厳選された本格的な攻略記事で、あなたのTOEICスコアを確実に向上させます</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>リスニングで確実に９割を突破する方法</h3>
+                        <p>TOEICリスニングセクションで高得点を取るための実践的なテクニックと学習法を詳しく解説。音声教材の選び方から本番での時間配分まで徹底網羅。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>リーディングを得点源にできる学習法</h3>
+                        <p>多くの受験者が苦手とするリーディングセクションを攻略する秘訣。文法の効率的な学習法から長文読解のスピードアップ方法まで、実例を交えて詳しく紹介。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>スコア９００点を超えるまでの道のり</h3>
+                        <p>500点台から900点台まで上げた筆者の体験談と戦略。学習計画の立て方、使用教材、つまずきポイントの克服法など、成功への具体的なステップを公開。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>超絶おすすめ参考書まとめ</h3>
+                        <p>目標スコア別におすすめの参考書と問題集を厳選紹介。各教材の特徴と効果的な使い方を解説し、自分に最適な教材選びをサポートします。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>試験は前日から始まっている。本番までの必須アイテムまとめ</h3>
+                        <p>試験当日と前日の過ごし方、持ち物チェックリスト、会場での注意点など。万全の準備で本番に臨むための完全ガイド。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="blog-content">
+                        <h3>継続は力なり、学習を続けるモチベーションアップ方法</h3>
+                        <p>長期間のTOEIC学習を挫折せずに続けるためのモチベーション管理術。効果的な目標設定、進捗管理、スランプ脱出法までを徹底解説。</p>
+                        <a href="#" class="read-more">詳細を読む →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="photo-tool-promo">
+        <div class="container">
+            <h2>TOEIC証明写真を自宅で簡単作成</h2>
+            <p>スマホやカメラで撮った写真をTOEIC受験用の証明写真に変換できる無料ツールを提供しています。わざわざ写真館に行く必要はありません。数クリックでダウンロードして、コンビニで印刷するだけ！</p>
+            <a href="https://id-photo-app.vercel.app/" class="btn" target="_blank">証明写真ツールを使う</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 TOEIC攻略ガイド All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>

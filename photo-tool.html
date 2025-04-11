@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>証明写真作成ツール | TOEIC攻略ガイド</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .page-title {
+            background-color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .page-title h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-section {
+            padding: 3rem 0;
+        }
+        
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+        }
+        
+        .step-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7fc;
+        }
+        
+        .upload-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .preview-area {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .preview-image {
+            max-width: 300px;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            margin-top: 1rem;
+        }
+        
+        .requirements {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 5px;
+            margin-top: 3rem;
+        }
+        
+        .requirements h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .requirements ul {
+            margin-left: 1.5rem;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: 5px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-color);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TOEIC攻略ガイド</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="blog.html">TOEIC攻略ブログ</a></li>
+                        <li><a href="photo-tool.html">証明写真作成</a></li>
+                        <li><a href="resources.html">学習リソース</a></li>
+                        <li><a href="about.html">サイトについて</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>TOEIC証明写真作成ツール</h1>
+            <p>自宅で簡単にTOEIC受験用の証明写真を作成できる無料ツールです</p>
+        </div>
+    </section>
+    
+    <section class="tool-section">
+        <div class="container">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2>TOEIC証明写真メーカー</h2>
+                    <p>スマホやカメラで撮った写真を、TOEIC受験に必要な証明写真形式に変換します。<br>背景処理とサイズ調整を自動で行います。</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-title">
+                        <div class="step-number">1</div>
+                        <h3>写真をアップロード</h3>
+                    </div>
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📁</div>
+                        <p>ここをクリックして写真をアップロード<br>または写真をドラッグ＆ドロップ</p>
+                        <input type="file" id="photo-upload" style="display: none;">
+                    </div>
+                    <p><small>※ JPG、PNG形式の写真をアップロードしてください</small></p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-title">
+                        <div class="step-number">2</div>
+                        <h3>調整と編集</h3>
+                    </div>
+                    <p>アップロードした写真を自動処理します。必要に応じて調整してください。</p>
+                    <div class="preview-area">
+                        <p>※ツール準備中...</p>
+                        <!-- プレビュー画像はJavaScript実装後に表示されます -->
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-title">
+                        <div class="step-number">3</div>
+                        <h3>ダウンロードと印刷</h3>
+                    </div>
+                    <p>完成した証明写真をダウンロードします。コンビニなどで印刷してご利用ください。</p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button class="btn btn-accent" disabled>ダウンロード</button>
+                    </div>
+                </div>
+                
+                <div class="requirements">
+                    <h3>TOEIC受験用証明写真の要件</h3>
+                    <ul>
+                        <li>サイズ：縦4cm×横3cm</li>
+                        <li>背景：無地（白、青、グレーなど）</li>
+                        <li>撮影時期：6ヶ月以内に撮影されたもの</li>
+                        <li>顔の向き：正面を向いている</li>
+                        <li>表情：自然な表情（笑顔は不可）</li>
+                        <li>眼鏡：反射していないこと、フレームが目を隠していないこと</li>
+                        <li>帽子、サングラス：不可</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Q: このツールで作成した証明写真は本当にTOEIC受験で使えますか？</div>
+                    <div class="faq-answer">A: はい、TOEIC受験の規定に合わせて作成しているため、要件を満たした写真であれば問題なく使用できます。ただし、最終的な判断は受験会場によって異なる場合がありますので、心配な方は予備の写真も用意することをおすすめします。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: 写真のデータはどこに保存されますか？</div>
+                    <div class="faq-answer">A: 写真データはご利用のデバイス内でのみ処理され、サーバーに保存されることはありません。プライバシーとセキュリティを重視して設計されています。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: どこで印刷できますか？</div>
+                    <div class="faq-answer">A: ダウンロードした写真データは、コンビニのマルチコピー機（セブンイレブン、ローソン、ファミリーマートなど）や写真プリントサービスで印刷できます。印刷時は「証明写真サイズ」または「4cm×3cm」を選択してください。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: 料金はかかりますか？</div>
+                    <div class="faq-answer">A: 当ツールの利用は完全無料です。ただし、印刷にかかる費用はご自身でご負担ください。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 TOEIC攻略ガイド All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // ここに写真アップロードと処理のJavaScriptを実装します
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('photo-upload');
+            
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // ドラッグ＆ドロップの実装はJavaScriptで追加予定
+            
+            // ファイルアップロード処理はJavaScriptで追加予定
+        });
+    </script>
+</body>
+</html>

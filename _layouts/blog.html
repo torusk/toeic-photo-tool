@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | TOEIC攻略ガイド</title>
+    <style>
+      /* あなたの既存のCSSをここにコピー */
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2980b9;
+        --text-color: #333;
+        --light-color: #f8f9fa;
+        --accent-color: #e74c3c;
+      }
+
+      /* 以下、既存のCSSをここに全てコピー */
+
+      /* ブログ記事用の追加スタイル */
+      .article-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.8;
+      }
+
+      .article-content h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .article-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 2rem auto;
+        border-radius: 5px;
+      }
+
+      .article-meta {
+        margin-bottom: 2rem;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .article-tag {
+        background-color: #eee;
+        color: #666;
+        padding: 0.3rem 0.8rem;
+        border-radius: 3px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">TOEIC攻略ガイド</div>
+          <nav>
+            <ul>
+              <li><a href="/index.html">ホーム</a></li>
+              <li><a href="/blog.html">TOEIC攻略ブログ</a></li>
+              <li><a href="/photo-tool.html">証明写真作成</a></li>
+              <li><a href="/resources.html">学習リソース</a></li>
+              <li><a href="/about.html">サイトについて</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-title">
+      <div class="container">
+        <h1>{{ page.title }}</h1>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <div class="container">
+        <div class="article-content">
+          <div class="article-meta">
+            公開日: {{ page.date | date: "%Y年%m月%d日" }} | カテゴリ: {{
+            page.category }}
+          </div>
+
+          <img
+            src="{{ page.thumbnail }}"
+            alt="{{ page.title }}"
+            class="article-featured-image"
+          />
+
+          {{ content }}
+
+          <div class="article-tags">
+            {% for tag in page.tags %}
+            <span class="article-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 TOEIC攻略ガイド All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="/privacy.html">プライバシーポリシー</a>
+          <a href="/terms.html">利用規約</a>
+          <a href="/contact.html">お問い合わせ</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </body>
+</html>

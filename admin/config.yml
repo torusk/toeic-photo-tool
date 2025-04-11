@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main # GitHubのブランチ名（mainかmasterを使用）
+
+# Netlifyでの画像アップロード設定
+media_folder: "images/uploads" # メディアファイルが保存されるディレクトリ
+public_folder: "/images/uploads" # URLパス
+
+collections:
+  - name: "blog" # 内部識別名
+    label: "ブログ記事" # UI上の表示名
+    folder: "_posts" # 記事が保存されるディレクトリ
+    create: true # 新しい記事の作成を許可
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
+    fields: # 記事の各フィールド
+      - {
+          label: "レイアウト",
+          name: "layout",
+          widget: "hidden",
+          default: "blog",
+        }
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "公開日", name: "date", widget: "datetime" }
+      - { label: "サムネイル画像", name: "thumbnail", widget: "image" }
+      - {
+          label: "カテゴリ",
+          name: "category",
+          widget: "select",
+          options:
+            ["リスニング", "リーディング", "TOEIC攻略法", "学習教材", "体験談"],
+        }
+      - { label: "タグ", name: "tags", widget: "list" }
+      - { label: "本文", name: "body", widget: "markdown" }
+      - { label: "概要", name: "description", widget: "text" }
